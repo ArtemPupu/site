@@ -1,0 +1,59 @@
+body {
+    background-color: #f8f9fa;
+    font-family: 'Arial', sans-serif;
+}
+
+.container {
+    max-width: 800px;
+    margin-top: 30px;
+}
+
+.registration-card {
+    border-radius: 15px;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+    padding: 30px;
+    background-color: white;
+}
+
+.counter {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #0d6efd;
+    margin-bottom: 20px;
+}
+
+.form-label {
+    font-weight: 500;
+}
+
+.required:after {
+    content: " *";
+    color: red;
+}
+
+.profession-options {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+}
+
+.alert-notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+    min-width: 300px;
+    opacity: 0;
+    transition: opacity 0.5s;
+}
+
+.show-notification {
+    opacity: 1;
+}
+
+.btn-submit {
+    background-color: #0d6efd;
+    color: white;
+    padding: 10px 25px;
+    font-weight: 500;
+}
