@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container0">
+        <header class="header">
+            <img src="{{ url_for('static', filename='img/logo.png') }}" alt="" class="img-logo">
+            <ul class="texts-nav">
+                <li><a href="#1" class="text-nav">Главное</a></li>
+                <li><a href="#2" class="text-nav">Мероприятия</a></li>
+                <li><a href="#3" class="text-nav">Записаться</a></li>
+                <li><a href="#4" class="text-nav">Приоритеты</a></li>
+            </ul>
+            <div class="iconcs">
+                <img src="{{ url_for('static', filename='img/tg.png') }}" alt="" class="header-icon">
+                <img src="{{ url_for('static', filename='img/vk.png') }}" alt="" class="header-icon">
+                <img src="{{ url_for('static', filename='img/wat.png') }}" alt="" class="header-icon">
+            </div>
+        </header>
+        <div class="cont container1" id="1">
+            <div class="cont1-block1">
+                <div class="cont1-texts">
+                    <h1 class="h1-text-1">
+                        МОЯ СЕМЬЯ - МОЁ БУДУЩИЕ!
+                    </h1>
+                    <p class="p-text1">
+                        Фонд "Ходячие ножки"
+                        создан для поддержки семей
+                        с детьми инвалидами
+                    </p>
+                </div>
+                <img src="{{ url_for('static', filename='img/img1.png') }}" alt="" class="img1">
+            </div>
+            <div class="cont1-block2">
+                <p class="p-text12">
+                    Lorem Ipsum - это текст-"рыба", часто используемый в печати и вэб-дизайне. Lorem Ipsum является стандартной "рыбой" для текстов на латинице с начала XVI века.
+                </p>
+            </div>
+        </div>
+        <div class="cont container2" id="2">
+            <div class="cards-2">
+                {% for event in events %}
+                <div class="card-2">
+                    <img src="{{ url_for('static', filename='img/' + event.image) }}" alt="" class="card-img">
+                    <h3 class="h3-text-img">{{ event.title }}</h3>
+                    <button class="button-card modal-btn" data-event-id="{{ event.id }}">ПОДРОБНЕЕ</button>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="cont container3" id="3">
+            <div class="cont3">
+                <video src="static/video/фест.mp4" autoplay loop controls></video>
+                <a href="http://127.0.0.1:8080" class="btn btn-primary" target="_blank">
+                    <button onclick="startRegistration()" class="btn button-3">Перейти к регистрации</button>
+                </a>
+            </div>
+        </div>
+        <div class="cont container4" id="4">
+            <div class="cont-4-block1">
+                <div class="slidshow">
+                    <img src="{{ url_for('static', filename='img/img2.png') }}" alt="" class="slid-img">
+                </div>
+                <div class="slidshow">
+                    <img src="{{ url_for('static', filename='img/img3.png') }}" alt="" class="slid-img">
+                </div>
+                <div class="slidshow">
+                    <img src="{{ url_for('static', filename='img/img4.png') }}" alt="" class="slid-img">
+                </div>
+                <div class="slidshow">
+                    <img src="{{ url_for('static', filename='img/img5.png') }}" alt="" class="slid-img">
+                </div>
+            </div>
+            <div class="cont-4-block2">
+                <footer class="footer">
+                    <div class="foot-block1">
+                        <img src="{{ url_for('static', filename='img/logo.png') }}" alt="" class="foot-logo">
+                        <a href="#1"><img src="{{ url_for('static', filename='img/up.webp') }}" alt="" class="up"></a>
+                        <div class="foot-texts">
+                            <p class="p-text-4">
+                                Мы в соцсетях 
+                            </p>
+                            <div class="foot-iconcs">
+                                <img src="{{ url_for('static', filename='img/tg.png') }}" alt="" class="icon">
+                                <img src="{{ url_for('static', filename='img/vk.png') }}" alt="" class="icon">
+                                <img src="{{ url_for('static', filename='img/wat.png') }}" alt="" class="icon">
+                            </div>
+                            <p class="number">
+                                +7 (916)-097-76-76
+                            </p>
+                            <p class="email">
+                                artem.pr.2000@intet.ru
+                            </p>
+                        </div>
+                    </div>
+                    <div class="foot-block2">
+                        <p class="text-foot-copy">
+                            © А. А. Пронин, 2025
+                        </p>
+                    </div>
+                </footer>
+            </div>
+        </div>
+    </div>
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <img id="modal-image" src="" alt="" class="modal-img">
+            <h3 id="modal-title"></h3>
+            <p id="modal-description"></p>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/core.js') }}"></script>
+</body>
+</html>
